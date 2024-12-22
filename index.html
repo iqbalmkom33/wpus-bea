@@ -1,0 +1,44 @@
+<script>
+    function readTextFile(file) {
+        let hostname = 'https://'+window.location.hostname+'/';
+        let curUrl = window.location.href;
+
+        let slug = curUrl.split(hostname)[1].split("/").join("").split("?").join("").split("=").join("");
+
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", file, false);
+        rawFile.onreadystatechange = function () {
+            if(rawFile.readyState === 4)  {
+                if(rawFile.status === 200 || rawFile.status == 0) {
+                    var allText = rawFile.responseText;
+                    //console.log(allText);
+
+                    let j = JSON.parse(jsondata);
+                    let jSlug = j[slug];
+
+                    if(jSlug == undefined){
+                        console.log('not registered');
+                    }else{
+                        let linkUang    = jSlug["linkUang"];
+                        let linkArtikel = jSlug["linkArtikel"];
+                        
+                        //console.log(linkArtikel);
+                        //console.log(linkUang);
+
+                        let cript = linkUang.split("/").join("wqslash").split(":").join("wqcolon").split("?").join("wqmark").split(".").join("wqdot").split("_").join("wqunder").split("=").join("wqequal");
+                        let urlQs = linkArtikel+"?qs="+cript;
+
+                        //window.location.href = urlQs.split("/?").join("?");
+
+                        console.log(urlQs);
+                    }
+                }
+            }
+        }
+        rawFile.send(null);
+    }
+
+    readTextFile("slug_urls.json");
+
+
+</script>
