@@ -6,11 +6,12 @@
         let hostname = 'https://'+window.location.hostname+'/';
         let curUrl = window.location.href;
 
-        let slug = curUrl.split(hostname)[1].split("/").join("").split("?").join("").split("=").join("");
+        //let slug = curUrl.split(hostname)[1].split("/").join("").split("?").join("").split("=").join("");
+        let slug = curUrl.split(hostname)[1];
 
-        p(hostname);
-        p(curUrl);
-        p(slug);
+        p('hostname='+hostname);
+        p('curUrl='+curUrl);
+        p('slug='+slug);
 
         var rawFile = new XMLHttpRequest();
         rawFile.open("GET", file, false);
@@ -33,7 +34,7 @@
                         //console.log(linkUang);
 
                         let cript = linkUang.split("/").join("wqslash").split(":").join("wqcolon").split("?").join("wqmark").split(".").join("wqdot").split("_").join("wqunder").split("=").join("wqequal");
-                        let urlQs = linkArtikel+"?qs="+cript;
+                        let urlQs = linkArtikel+"?wqqs="+cript;
 
                         //window.location.href = urlQs.split("/?").join("?");
 
