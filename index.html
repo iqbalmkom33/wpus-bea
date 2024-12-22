@@ -33,7 +33,14 @@
                         //console.log(linkArtikel);
                         //console.log(linkUang);
 
-                        let cript = linkUang.split("/").join("wqslash").split(":").join("wqcolon").split("?").join("wqmark").split(".").join("wqdot").split("_").join("wqunder").split("=").join("wqequal");
+                        //let cript = linkUang.split("/").join("wqslash").split(":").join("wqcolon").split("?").join("wqmark").split(".").join("wqdot").split("_").join("wqunder").split("=").join("wqequal");
+                        let cript = linkUang.split("/").join("wqslash")
+                                    .split(":").join("wqcolon")
+                                    .split("?").join("wqmark")
+                                    //.split(".").join("wqdot")
+                                    //.split("_").join("wqunder")
+                                    .split("=").join("wqequal");
+
                         let urlQs = linkArtikel+"?wqqs="+cript;
 
                         //window.location.href = urlQs.split("/?").join("?");
