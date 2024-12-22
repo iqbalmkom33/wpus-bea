@@ -1,3 +1,4 @@
+
 <script>
     function readTextFile(file) {
         let hostname = 'https://'+window.location.hostname+'/';
@@ -13,7 +14,7 @@
                     var allText = rawFile.responseText;
                     //console.log(allText);
 
-                    let j = JSON.parse(jsondata);
+                    let j = JSON.parse(allText);
                     let jSlug = j[slug];
 
                     if(jSlug == undefined){
